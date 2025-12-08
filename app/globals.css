@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --background: #0a0a0f;
-  --foreground: #ffffff;
-  --muted: #64748b;
-  --border: rgba(255, 255, 255, 0.1);
-  --accent: #8b5cf6;
-  --accent-hover: #7c3aed;
+  --background: #fafaf9;
+  --foreground: #1c1917;
+  --muted: #78716c;
+  --border: rgba(28, 25, 23, 0.08);
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
 }
 
 * {
@@ -30,7 +30,7 @@ body {
   min-height: 100vh;
 }
 
-/* Premium dark scrollbar */
+/* Elegant light scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -41,12 +41,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(28, 25, 23, 0.15);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(28, 25, 23, 0.25);
 }
 
 /* Skeleton loader animation */
@@ -62,9 +62,9 @@ body {
 .skeleton {
   background: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0.03) 25%,
-    rgba(255, 255, 255, 0.06) 50%,
-    rgba(255, 255, 255, 0.03) 75%
+    rgba(28, 25, 23, 0.04) 25%,
+    rgba(28, 25, 23, 0.08) 50%,
+    rgba(28, 25, 23, 0.04) 75%
   );
   background-size: 200% 100%;
   animation: shimmer 1.5s ease-in-out infinite;
@@ -88,38 +88,38 @@ textarea {
 
 /* Gradient text utility */
 .text-gradient {
-  background: linear-gradient(135deg, #8b5cf6, #d946ef);
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Glass morphism utility */
+/* Glass morphism utility - light version */
 .glass {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(28, 25, 23, 0.06);
 }
 
-/* Glow effects */
-.glow-violet {
-  box-shadow: 0 0 40px rgba(139, 92, 246, 0.15);
+/* Soft shadow effects */
+.glow-indigo {
+  box-shadow: 0 4px 24px rgba(79, 70, 229, 0.12);
 }
 
-.glow-fuchsia {
-  box-shadow: 0 0 40px rgba(217, 70, 239, 0.15);
+.glow-purple {
+  box-shadow: 0 4px 24px rgba(124, 58, 237, 0.12);
 }
 
 /* Subtle background pattern */
 .bg-grid {
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(rgba(28, 25, 23, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(28, 25, 23, 0.03) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 
 /* Selection styling */
 ::selection {
-  background: rgba(139, 92, 246, 0.3);
-  color: #ffffff;
+  background: rgba(79, 70, 229, 0.2);
+  color: #1c1917;
 }

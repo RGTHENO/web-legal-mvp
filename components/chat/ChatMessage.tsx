@@ -25,14 +25,14 @@ export function ChatMessage({ message, documentNames }: ChatMessageProps) {
         className={cn(
           "w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0",
           isUser 
-            ? "bg-white/10" 
-            : "bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-violet-500/20"
+            ? "bg-stone-100 border border-stone-200" 
+            : "bg-gradient-to-br from-indigo-100 to-violet-100 border border-indigo-200/50 shadow-sm"
         )}
       >
         {isUser ? (
-          <User className="w-4 h-4 text-white/70" />
+          <User className="w-4 h-4 text-stone-500" />
         ) : (
-          <Bot className="w-4 h-4 text-violet-400" />
+          <Bot className="w-4 h-4 text-indigo-600" />
         )}
       </div>
 
@@ -42,15 +42,15 @@ export function ChatMessage({ message, documentNames }: ChatMessageProps) {
         {!isUser && (message.status || message.reasoning) && (
           <div className="mb-3 space-y-1.5">
             {message.status && (
-              <div className="flex items-center gap-2 text-xs text-white/40">
+              <div className="flex items-center gap-2 text-xs text-stone-400">
                 {message.isStreaming && (
-                  <Loader2 className="w-3 h-3 animate-spin text-violet-400" />
+                  <Loader2 className="w-3 h-3 animate-spin text-indigo-600" />
                 )}
                 <span>{message.status}</span>
               </div>
             )}
             {message.reasoning && (
-              <div className="text-xs text-violet-400/80 italic">
+              <div className="text-xs text-indigo-600/80 italic">
                 {message.reasoning}
               </div>
             )}
@@ -62,8 +62,8 @@ export function ChatMessage({ message, documentNames }: ChatMessageProps) {
           className={cn(
             "inline-block rounded-2xl px-4 py-3 max-w-full",
             isUser
-              ? "bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white rounded-tr-md shadow-lg shadow-violet-500/20"
-              : "bg-white/[0.03] border border-white/10 text-white/80 rounded-tl-md"
+              ? "bg-gradient-to-r from-indigo-600 to-violet-600 text-white rounded-tr-md shadow-lg shadow-indigo-500/20"
+              : "bg-white border border-stone-200 text-stone-700 rounded-tl-md shadow-sm"
           )}
         >
           {message.content ? (
@@ -71,23 +71,23 @@ export function ChatMessage({ message, documentNames }: ChatMessageProps) {
           ) : message.isStreaming ? (
             <div className="flex items-center gap-2">
               <div className="flex gap-1">
-                <span className="w-2 h-2 rounded-full bg-violet-400 animate-bounce" style={{ animationDelay: "0ms" }} />
-                <span className="w-2 h-2 rounded-full bg-violet-400 animate-bounce" style={{ animationDelay: "150ms" }} />
-                <span className="w-2 h-2 rounded-full bg-violet-400 animate-bounce" style={{ animationDelay: "300ms" }} />
+                <span className="w-2 h-2 rounded-full bg-indigo-500 animate-bounce" style={{ animationDelay: "0ms" }} />
+                <span className="w-2 h-2 rounded-full bg-indigo-500 animate-bounce" style={{ animationDelay: "150ms" }} />
+                <span className="w-2 h-2 rounded-full bg-indigo-500 animate-bounce" style={{ animationDelay: "300ms" }} />
               </div>
             </div>
           ) : null}
         </div>
 
         {/* Timestamp */}
-        <div className="mt-1.5 text-[11px] text-white/20">
+        <div className="mt-1.5 text-[11px] text-stone-300">
           {formatDate(message.timestamp)}
         </div>
 
         {/* Citations */}
         {!isUser && message.citations && message.citations.length > 0 && (
           <div className="mt-4">
-            <p className="text-xs text-white/40 mb-3 uppercase tracking-wider">Visual Evidence</p>
+            <p className="text-xs text-stone-400 mb-3 uppercase tracking-wider">Visual Evidence</p>
             <CitationGrid
               citations={message.citations}
               documentNames={documentNames}

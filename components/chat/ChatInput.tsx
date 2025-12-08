@@ -107,35 +107,35 @@ export function ChatInput({
           <div className={cn(
             "flex items-center gap-3 p-3 rounded-xl border",
             uploadError 
-              ? "bg-red-500/10 border-red-500/20" 
+              ? "bg-red-50 border-red-200" 
               : uploadComplete 
-                ? "bg-emerald-500/10 border-emerald-500/20"
-                : "bg-white/5 border-white/10"
+                ? "bg-emerald-50 border-emerald-200"
+                : "bg-stone-50 border-stone-200"
           )}>
             {/* File Icon */}
             <div className={cn(
               "w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0",
               uploadError 
-                ? "bg-red-500/20" 
+                ? "bg-red-100" 
                 : uploadComplete 
-                  ? "bg-emerald-500/20"
-                  : "bg-violet-500/20"
+                  ? "bg-emerald-100"
+                  : "bg-indigo-100"
             )}>
               {uploadComplete ? (
-                <CheckCircle className="w-5 h-5 text-emerald-400" />
+                <CheckCircle className="w-5 h-5 text-emerald-600" />
               ) : uploadError ? (
-                <AlertCircle className="w-5 h-5 text-red-400" />
+                <AlertCircle className="w-5 h-5 text-red-600" />
               ) : (
-                <FileText className="w-5 h-5 text-violet-400" />
+                <FileText className="w-5 h-5 text-indigo-600" />
               )}
             </div>
 
             {/* File Info */}
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-white truncate">
+              <p className="text-sm font-medium text-stone-800 truncate">
                 {pendingFile.name}
               </p>
-              <p className="text-xs text-white/50">
+              <p className="text-xs text-stone-500">
                 {isUploading ? uploadStatus || "Processing..." : 
                  uploadComplete ? "Indexed successfully!" :
                  uploadError ? uploadError :
@@ -148,13 +148,13 @@ export function ChatInput({
               <div className="flex items-center gap-2">
                 <button
                   onClick={handleUpload}
-                  className="px-3 py-1.5 text-xs font-medium text-white bg-violet-600 hover:bg-violet-500 rounded-lg transition-colors"
+                  className="px-3 py-1.5 text-xs font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors shadow-sm"
                 >
                   Index
                 </button>
                 <button
                   onClick={handleRemoveFile}
-                  className="p-1.5 text-white/40 hover:text-white/70 hover:bg-white/5 rounded-lg transition-colors"
+                  className="p-1.5 text-stone-400 hover:text-stone-600 hover:bg-stone-100 rounded-lg transition-colors"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -162,13 +162,13 @@ export function ChatInput({
             )}
 
             {isUploading && (
-              <Loader2 className="w-5 h-5 text-violet-400 animate-spin" />
+              <Loader2 className="w-5 h-5 text-indigo-600 animate-spin" />
             )}
 
             {uploadComplete && (
               <button
                 onClick={handleRemoveFile}
-                className="p-1.5 text-white/40 hover:text-white/70 hover:bg-white/5 rounded-lg transition-colors"
+                className="p-1.5 text-stone-400 hover:text-stone-600 hover:bg-stone-100 rounded-lg transition-colors"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -181,9 +181,9 @@ export function ChatInput({
       <div className="relative group">
         <div className={cn(
           "flex items-end gap-2 p-2 rounded-2xl border transition-all duration-200",
-          "bg-white/[0.03] border-white/10",
-          "focus-within:border-violet-500/50 focus-within:bg-white/[0.05]",
-          "shadow-lg shadow-black/20"
+          "bg-white border-stone-200",
+          "focus-within:border-indigo-400 focus-within:ring-2 focus-within:ring-indigo-100",
+          "shadow-sm hover:shadow-md"
         )}>
           {/* Attach Button */}
           <input
@@ -198,7 +198,7 @@ export function ChatInput({
             disabled={isLoading || isUploading}
             className={cn(
               "p-2.5 rounded-xl transition-all duration-200",
-              "text-white/40 hover:text-white/70 hover:bg-white/5",
+              "text-stone-400 hover:text-indigo-600 hover:bg-indigo-50",
               "disabled:opacity-50 disabled:cursor-not-allowed"
             )}
             title="Attach PDF document"
@@ -217,7 +217,7 @@ export function ChatInput({
             rows={1}
             className={cn(
               "flex-1 resize-none bg-transparent px-2 py-2.5",
-              "text-white placeholder:text-white/30",
+              "text-stone-800 placeholder:text-stone-400",
               "focus:outline-none",
               "disabled:opacity-60 disabled:cursor-not-allowed",
               "min-h-[44px] max-h-[200px]",
@@ -237,8 +237,8 @@ export function ChatInput({
             className={cn(
               "p-2.5 rounded-xl transition-all duration-200",
               input.trim() && !isLoading
-                ? "bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40"
-                : "bg-white/5 text-white/20 cursor-not-allowed"
+                ? "bg-gradient-to-r from-indigo-600 to-violet-600 text-white shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40"
+                : "bg-stone-100 text-stone-300 cursor-not-allowed"
             )}
           >
             {isLoading ? (
@@ -250,7 +250,7 @@ export function ChatInput({
         </div>
 
         {/* Hint */}
-        <p className="absolute -bottom-6 left-0 text-[11px] text-white/20">
+        <p className="absolute -bottom-6 left-0 text-[11px] text-stone-400">
           Press Enter to send · Shift+Enter for new line
         </p>
       </div>
