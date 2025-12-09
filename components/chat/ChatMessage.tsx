@@ -1,6 +1,6 @@
 "use client";
 
-import { User, Bot, Loader2 } from "lucide-react";
+import { User, Bot } from "lucide-react";
 import type { Message } from "@/lib/types";
 import { cn, formatDate } from "@/lib/utils";
 import { CitationGrid } from "./VisualCitation";
@@ -38,25 +38,6 @@ export function ChatMessage({ message, documentNames }: ChatMessageProps) {
 
       {/* Content */}
       <div className={cn("flex-1 min-w-0", isUser ? "text-right" : "text-left")}>
-        {/* Status/Reasoning indicators for assistant */}
-        {!isUser && (message.status || message.reasoning) && (
-          <div className="mb-3 space-y-1.5">
-            {message.status && (
-              <div className="flex items-center gap-2 text-xs text-stone-400">
-                {message.isStreaming && (
-                  <Loader2 className="w-3 h-3 animate-spin text-indigo-600" />
-                )}
-                <span>{message.status}</span>
-              </div>
-            )}
-            {message.reasoning && (
-              <div className="text-xs text-indigo-600/80 italic">
-                {message.reasoning}
-              </div>
-            )}
-          </div>
-        )}
-
         {/* Message bubble */}
         <div
           className={cn(
